@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:home_widget/home_widget.dart';
 
 import 'article_screen.dart';
@@ -15,6 +16,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 void updateHeadline(NewsArticle newHeadline) {
+  if (kIsWeb) {
+    return;
+  }
+
   HomeWidget.saveWidgetData<String>('headline_title', newHeadline.title);
   HomeWidget.saveWidgetData<String>(
     'headline_description',
@@ -31,7 +36,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    HomeWidget.setAppGroupId(appGroupId);
+    if (!kIsWeb) {
+      HomeWidget.setAppGroupId(appGroupId);
+    }
 
     final newHeadline = getNewsStories()[0];
     updateHeadline(newHeadline);

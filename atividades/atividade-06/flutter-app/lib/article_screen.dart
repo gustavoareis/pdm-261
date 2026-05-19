@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 // New: import the home_widget package.
 import 'package:home_widget/home_widget.dart';
 
@@ -27,6 +28,10 @@ class _ArticleScreenState extends State<ArticleScreen> {
       // New: add this FloatingActionButton
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
+          if (kIsWeb) {
+            return;
+          }
+
           if (_globalKey.currentContext != null) {
             var path = await HomeWidget.renderFlutterWidget(
               const LineChart(),
