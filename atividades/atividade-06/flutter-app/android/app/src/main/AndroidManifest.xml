@@ -1,19 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="Gustavo Almeida dos Reis"
+        android:label="animated_responsive_layout"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <receiver
-            android:name=".NewsWidget"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/news_widget_info" />
-        </receiver>
         <activity
             android:name=".MainActivity"
             android:exported="true"

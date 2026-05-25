@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "homescreen_widgets",
+            "name": "animated_responsive_layout",
             "request": "launch",
             "type": "dart"
         }
